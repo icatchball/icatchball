@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/icatchball/static/css/main.cafe81c1.css",
-    "main.js": "/icatchball/static/js/main.d741f127.js",
+    "main.css": "/icatchball/static/css/main.64aba993.css",
+    "main.js": "/icatchball/static/js/main.b71468c7.js",
     "static/js/453.60143b59.chunk.js": "/icatchball/static/js/453.60143b59.chunk.js",
     "static/media/slide4.jpg": "/icatchball/static/media/slide4.06cc0b152bc8af3a4691.jpg",
     "static/media/slide1.jpg": "/icatchball/static/media/slide1.0002340c28d590b6b9f4.jpg",
@@ -13,12 +13,12 @@
     "static/media/slide6.jpg": "/icatchball/static/media/slide6.94c35a14f0437927baf8.jpg",
     "static/media/logo2.png": "/icatchball/static/media/logo2.37d9da4bc4ce352c9862.png",
     "index.html": "/icatchball/index.html",
-    "main.cafe81c1.css.map": "/icatchball/static/css/main.cafe81c1.css.map",
-    "main.d741f127.js.map": "/icatchball/static/js/main.d741f127.js.map",
+    "main.64aba993.css.map": "/icatchball/static/css/main.64aba993.css.map",
+    "main.b71468c7.js.map": "/icatchball/static/js/main.b71468c7.js.map",
     "453.60143b59.chunk.js.map": "/icatchball/static/js/453.60143b59.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cafe81c1.css",
-    "static/js/main.d741f127.js"
+    "static/css/main.64aba993.css",
+    "static/js/main.b71468c7.js"
   ]
 }
