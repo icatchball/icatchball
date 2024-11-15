@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { VscClose } from "react-icons/vsc";
-import logo2 from "../assets/logo2.png";
+import logo4 from "../assets/logo4.png";
 import { Link } from "react-scroll";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [selected, setSelected] = useState("hero");
 
   const handleToggle = () => {
     setOpen(!open);
@@ -25,9 +26,16 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const linkClasses = (tab) =>
+    `font-medium px-4 py-2 rounded-3xl cursor-pointer transition-all duration-300 ease-in-out ${
+      selected === tab
+        ? "bg-[#d01e6d] border border-[#d01e6d] text-white transform scale-105"
+        : "text-primary hover:text-[#f9c5d1]"
+    }`;
+
   return (
     <nav
-      className={`fixed top-0 left-0 w-full p-4 z-50 transition-shadow duration-300 ${
+      className={`fixed top-0 left-0 w-full p-2 z-50 transition-shadow duration-300 ${
         scrolled ? "shadow-md bg-white" : ""
       }`}
     >
@@ -39,14 +47,14 @@ const Navbar = () => {
             smooth={true}
             offset={-75}
             duration={500}
-            className="text-primary font-medium hover:text-[#f9c5d1]"
+            className="text-primary font-medium hover:text-[#f9c5d1] hover:bg-[#f9c5d1]"
           >
-            <img src={logo2} alt="Logo" className="w-11 h-auto" />
+            <img src={logo4} alt="Logo" className="w-[60px] h-auto" />
           </Link>
         </div>
         {/* Centered Navigation Links */}
-        <div className="hidden md:flex cursor-pointer md:justify-end ml-auto">
-          <ul className="flex space-x-8 mx-auto text-lg">
+        <div className="hidden md:flex md:justify-end ml-auto">
+          <ul className="flex space-x-8 text-lg">
             <li>
               <Link
                 to="hero"
@@ -54,7 +62,9 @@ const Navbar = () => {
                 smooth={true}
                 offset={-75}
                 duration={500}
-                className="text-primary font-medium hover:text-[#f9c5d1]"
+                className={linkClasses("hero")}
+                onClick={() => setSelected("hero")}
+                onSetActive={() => setSelected("hero")}
               >
                 Home
               </Link>
@@ -66,12 +76,13 @@ const Navbar = () => {
                 smooth={true}
                 offset={-125}
                 duration={500}
-                className="text-primary font-medium hover:text-[#f9c5d1]"
+                className={linkClasses("about")}
+                onClick={() => setSelected("about")}
+                onSetActive={() => setSelected("about")}
               >
                 About
               </Link>
             </li>
-
             <li>
               <Link
                 to="contact"
@@ -79,7 +90,9 @@ const Navbar = () => {
                 smooth={true}
                 offset={-75}
                 duration={500}
-                className="text-primary font-medium hover:text-[#f9c5d1]"
+                className={linkClasses("contact")}
+                onClick={() => setSelected("contact")}
+                onSetActive={() => setSelected("contact")}
               >
                 Contact
               </Link>
@@ -87,7 +100,7 @@ const Navbar = () => {
           </ul>
         </div>
         {/* Hamburger Menu */}
-        <div className="md:hidden w-10 h-10 items-center font-extrabold flex text-primary text-2xl">
+        <div className="md:hidden w-10 h-10 flex items-center font-extrabold text-primary text-2xl">
           <button onClick={handleToggle}>
             {open ? <VscClose /> : <RxHamburgerMenu />}
           </button>
@@ -108,8 +121,12 @@ const Navbar = () => {
               smooth={true}
               offset={-75}
               duration={500}
-              className="text-primary font-medium hover:text-[#f9c5d1]"
-              onClick={handleClose}
+              className={linkClasses("hero")}
+              onClick={() => {
+                setSelected("hero");
+                handleClose();
+              }}
+              onSetActive={() => setSelected("hero")}
             >
               Home
             </Link>
@@ -121,13 +138,16 @@ const Navbar = () => {
               smooth={true}
               offset={-125}
               duration={500}
-              className="text-primary font-medium hover:text-[#f9c5d1]"
-              onClick={handleClose}
+              className={linkClasses("about")}
+              onClick={() => {
+                setSelected("about");
+                handleClose();
+              }}
+              onSetActive={() => setSelected("about")}
             >
               About
             </Link>
           </li>
-
           <li>
             <Link
               to="contact"
@@ -135,8 +155,12 @@ const Navbar = () => {
               smooth={true}
               offset={-75}
               duration={500}
-              className="text-primary font-medium hover:text-[#f9c5d1]"
-              onClick={handleClose}
+              className={linkClasses("contact")}
+              onClick={() => {
+                setSelected("contact");
+                handleClose();
+              }}
+              onSetActive={() => setSelected("contact")}
             >
               Contact
             </Link>

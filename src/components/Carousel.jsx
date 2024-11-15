@@ -19,23 +19,14 @@ const Carousel = ({ images }) => {
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
       setIsFading(false);
-    }, 500); // Match this duration with fade duration
-  };
-
-  const fadeToPreviousImage = () => {
-    setIsFading(true);
-    setTimeout(() => {
-      setCurrentIndex(
-        currentIndex === 0 ? images.length - 1 : currentIndex - 1
-      );
-      setIsFading(false);
     }, 500);
   };
 
   return (
-    <div className="relative mt-14 md:mt-28 w-screen overflow-hidden z-10 -mx-4 md:-mx-8 lg:-mx-16 xl:-mx-24">
-      {/* Carousel Images */}
-      <div className="w-full h-[400px] relative">
+    <div className="relative h-[480px] mt-14 md:mt-28 w-screen overflow-hidden z-10">
+      <div className="absolute inset-0 bg-black opacity-75 z-10"></div>
+
+      <div className="w-full h-[520px] relative">
         {images.map((image, index) => (
           <div
             key={index}
@@ -46,25 +37,13 @@ const Carousel = ({ images }) => {
             <img
               src={image}
               alt={`Slide ${index}`}
-              className="w-full h-full object-cover"
+              className={`w-full h-full object-cover transition-transform duration-500 ${
+                index !== 1 ? "transform -translate-y-10" : "" // Shift up on Y-axis for all except slide2
+              }`}
             />
           </div>
         ))}
       </div>
-
-      {/* Previous and Next Buttons */}
-      <button
-        onClick={fadeToPreviousImage}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-2 py-1 rounded-full"
-      >
-        &#10094;
-      </button>
-      <button
-        onClick={fadeToNextImage}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-2 py-1 rounded-full"
-      >
-        &#10095;
-      </button>
     </div>
   );
 };

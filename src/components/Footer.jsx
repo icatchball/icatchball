@@ -1,22 +1,20 @@
 import React from "react";
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
-import logo2 from "../assets/logo2.png";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
+import logo4 from "../assets/logo4.png";
 import { Link } from "react-scroll";
 
 const Footer = () => {
   return (
     <footer className="bg-white shadow-md mt-10 py-8 w-screen relative left-1/2 -translate-x-1/2">
       <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center px-4">
-        {/* Logo Section */}
         <div className="flex items-center space-x-4">
-          <img src={logo2} alt="Logo" className="w-11 h-auto" />
+          <img src={logo4} alt="Logo" className="w-11 h-auto" />
           <span className="text-primary font-medium text-lg">
-            Catchball League
+            iCatchball League
           </span>
         </div>
 
-        {/* Navigation Links */}
-        <div className="mt-4 md:mt-0 flex flex-col md:flex-row md:mr-[140px] md:space-x-8 text-center">
+        <div className="mt-4 cursor-pointer md:mt-0 flex flex-col md:flex-row md:mr-[140px] md:space-x-8 text-center">
           <Link
             to="hero"
             spy={true}
@@ -28,17 +26,17 @@ const Footer = () => {
             Home
           </Link>
           <Link
-            to="hero"
+            to="about"
             spy={true}
             smooth={true}
-            offset={-75}
+            offset={-125}
             duration={500}
             className="text-primary font-medium hover:text-[#f9c5d1]"
           >
             About
           </Link>
           <Link
-            to="hero"
+            to="contact"
             spy={true}
             smooth={true}
             offset={-75}
@@ -49,7 +47,6 @@ const Footer = () => {
           </Link>
         </div>
 
-        {/* Social Media Icons */}
         <div className="mt-4 md:mt-0 flex space-x-6">
           <a
             href="https://www.facebook.com/ICatchball/"
@@ -70,9 +67,8 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Text */}
       <div className="mt-6 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} Catchball League. All rights reserved.
+        © {new Date().getFullYear()} iCatchball League. All rights reserved.
       </div>
     </footer>
   );
